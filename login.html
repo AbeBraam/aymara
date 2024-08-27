@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .password-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm" action="login.php" method="POST" autocomplete="off">
+        <label for="username">Nombre de usuario:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Contraseña:</label>
+        <div class="password-container">
+            <input type="password" id="password" name="password" required minlength="8">
+            <span class="toggle-password" id="togglePassword" onclick="togglePassword('password', 'togglePassword')">&#128065;</span>
+        </div>
+        
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        function togglePassword(inputId, iconId) {
+            var input = document.getElementById(inputId);
+            var icon = document.getElementById(iconId);
+            if (input.type === "password") {
+                input.type = "text";
+                icon.innerHTML = "&#128065;&#65039;"; // Ojo abierto
+            } else {
+                input.type = "password";
+                icon.innerHTML = "&#128065;"; // Ojo cerrado
+            }
+        }
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
